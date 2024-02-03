@@ -1,4 +1,3 @@
-
 name: Deploy to ECR
 
 on:
@@ -31,7 +30,7 @@ jobs:
     - name: Build, test, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: 508327803984.dkr.ecr.us-east-1.amazonaws.com/docker-dev-containers-database-repo
+        ECR_REPOSITORY: docker-dev-containers-application-repo
         IMAGE_TAG: v0.1
       
       run: |
@@ -72,7 +71,7 @@ jobs:
     - name: Build, tag, and push image DB to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr-db.outputs.registry }}
-        ECR_REPOSITORY: 508327803984.dkr.ecr.us-east-1.amazonaws.com/docker-dev-containers-database-repo 
+        ECR_REPOSITORY: docker-dev-containers-database-repo
         IMAGE_TAG: v0.1
       run: |
        
